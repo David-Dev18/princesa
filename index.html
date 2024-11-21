@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eu te amo popozao</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Imagem de fundo -->
+        <div class="background-image">
+            <img src="https://i.pinimg.com/originals/36/82/cc/3682ccb6188e4b220862b45b740a4c33.gif" alt="Imagem de fundo">
+        </div>
+
+        <!-- Imagem da pistola -->
+        <div class="image-container" id="pistola-container" style="display: none;">
+            <img src="foto_da_arma.png" alt="pistola">
+            <div class="message-text">vai abrir sim 😑</div>
+        </div>
+
+        <!-- Balão de conversa -->
+        <div id="chat-box" class="chat-box">
+        
+        </div>
+
+        <!-- Botões para redirecionamento -->
+        <button id="redirect-button" class="hidden-button1" style="display: none;" onclick="redirectToSite()">Ver o site</button>
+        <button id="no-redirect-button" class="hidden-button2" style="display: none;" onclick="hideAndShowPistola()">Não ver o site</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

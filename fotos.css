@@ -1,0 +1,156 @@
+/* Fundo de vídeo */
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo cobrir toda a tela */
+    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+}
+
+/* Container dos cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas com largura igual */
+    grid-template-rows: auto; /* Ajuste automático das linhas conforme o conteúdo */
+    gap: 20px; /* Espaçamento entre os cards */
+    padding: 20px; /* Espaçamento interno do container */
+}
+
+/* Cores dos cards */
+.cards .red {
+    background-color: #3181f8;
+}
+
+.cards .blue {
+    background-color: #074d18;
+}
+
+.cards .green {
+    background-color: #593f6b;
+}
+
+/* Estilo geral dos cards */
+.cards .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Espaça o conteúdo dentro do card */
+    text-align: center;
+    width: 250px; /* Largura do card */
+    height: 350px; /* Altura do card */
+    border-radius: 12px; /* Bordas arredondadas */
+    color: white;
+    cursor: pointer;
+    overflow: hidden; /* Esconde o conteúdo que ultrapassa os limites do card */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Animações suaves */
+    animation: jump 1.5s ease-in-out infinite; /* Animação de pulo contínuo */
+}
+
+/* Animação de pulo */
+@keyframes jump {
+    0% {
+        transform: translateY(0); /* Começa no ponto original */
+    }
+    25% {
+        transform: translateY(-10px); /* Move para cima */
+    }
+    50% {
+        transform: translateY(0); /* Volta para o ponto original */
+    }
+    75% {
+        transform: translateY(-5px); /* Move para cima de novo */
+    }
+    100% {
+        transform: translateY(0); /* Volta ao ponto original */
+    }
+}
+
+/* Estilo da imagem dentro do card */
+.cards .card img {
+    width: 100%; /* Faz a imagem preencher toda a largura do card */
+    height: 60%; /* Controla a altura da imagem dentro do card */
+    object-fit: cover; /* Faz com que a imagem cubra o espaço do card sem distorcer */
+    border-top-left-radius: 12px; /* Arredonda o topo da imagem */
+    border-top-right-radius: 12px; /* Arredonda o topo da imagem */
+}
+
+/* Estilo do texto dentro do card */
+.cards .card .second-text {
+    font-size: 1.4em; /* Aumentei o tamanho da fonte */
+    font-family: 'Dancing Script', cursive; /* Fonte de letra de mão */
+    font-weight: 400; /* Deixei o peso mais leve */
+    padding: 15px 0; /* Ajustei o espaçamento */
+    color: #fff; /* Cor do texto para garantir boa visibilidade */
+}
+
+/* Efeito de hover para aumentar o card e alterar o brilho */
+.cards .card:hover {
+    transform: scale(1.05); /* Aumenta o card ao passar o mouse */
+    filter: brightness(90%); /* Aplica um efeito de brilho ao passar o mouse */
+}
+
+/* Ajustes para telas pequenas (Mobile) */
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas pequenas */
+        padding: 10px; /* Menos padding em telas pequenas */
+    }
+
+    .cards .card {
+        width: 200px; /* Diminuindo a largura dos cards */
+        height: 300px; /* Diminuindo a altura dos cards */
+    }
+
+    .cards .card .second-text {
+        font-size: 1.1em; /* Ajustando o tamanho da fonte para telas menores */
+        padding: 10px 0; /* Ajuste no padding */
+    }
+
+    /* Reduzindo a imagem dentro do card */
+    .cards .card img {
+        height: 50%; /* A imagem ocupa menos altura no celular */
+    }
+}
+
+/* Ajustes para telas muito pequenas (Celulares em retrato) */
+@media (max-width: 480px) {
+    .cards {
+        grid-template-columns: 1fr; /* 1 coluna para telas pequenas */
+    }
+
+    .cards .card {
+        width: 100%; /* Faz os cards ocuparem a largura total */
+        height: 250px; /* Menor altura para cards em telas muito pequenas */
+    }
+
+    .cards .card .second-text {
+        font-size: 1em; /* Ajustando ainda mais a fonte */
+    }
+
+    .cards .card img {
+        height: 40%; /* A imagem ocupa ainda menos espaço */
+    }
+}
+
+/* Ajustes para telas maiores (Notebooks e desktops) */
+@media (min-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas para telas grandes */
+        padding: 20px;
+    }
+
+    .cards .card {
+        width: 250px; /* Largura maior para cards */
+        height: 350px; /* Altura maior para cards */
+    }
+
+    .cards .card .second-text {
+        font-size: 1.4em; /* A fonte volta para o tamanho original */
+    }
+
+    .cards .card img {
+        height: 60%; /* A imagem ocupa a altura original */
+    }
+}
